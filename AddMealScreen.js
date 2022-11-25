@@ -1,6 +1,6 @@
 import * as React from "react";
 import {
-  FlatList,
+  SectionList,
   StyleSheet,
   Text,
   View,
@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { NavigationContainer } from "@react-navigation/native";
-import { recipeIngredients } from "./DummyData";
+import { recipeIngredients, mealCategories } from "./DummyData";
 import { useState } from "react";
 
 //fix to be more visually apealing
@@ -37,12 +37,18 @@ const styles = StyleSheet.create({
   item: {
     padding: 8,
     fontSize: 18,
-    height: 38,
+
+    justifyContent: "center",
+    alignItems: "center",
   },
   heading: {
     padding: 10,
     fontSize: 24,
-    height: 50,
+  },
+  sectionHeading: {
+    padding: 10,
+    fontSize: 24,
+    backgroundColor: "#ddd",
   },
   details: {
     fontSize: 12,
@@ -52,12 +58,32 @@ const styles = StyleSheet.create({
     fontSize: 24,
     height: 50,
   },
+  list: {
+    width: "100%",
+    height: "100%",
+  },
 });
 
 function AddMealScreen({ currentDay, adder, navigation }) {
   const mealtimes = ["b", "l", "d"];
   const mealtimesNames = ["breakfast", "lunch", "dinner"];
   const [mealIndex, setMealIndex] = useState(0);
+
+  const Item = ({ title }) => (
+    <TouchableOpacity
+      onPress={() => {
+        adder(title.name, currentDay, mealtimes[mealIndex]);
+        navigation("Base");
+      }}
+      style={styles.item}
+    >
+      <Text style={styles.item}>{title.name}</Text>
+      <Text style={styles.details}>{title.decription}</Text>
+      <Text style={styles.details}>
+        Calories:{title.calories} Cost:{title.price}
+      </Text>
+    </TouchableOpacity>
+  );
 
   function backarrow() {
     if (mealIndex === 0) {
@@ -89,7 +115,7 @@ function AddMealScreen({ currentDay, adder, navigation }) {
         />
       </Text>
       <Text style={styles.details}>{mealtimesNames[mealIndex]}</Text>
-      <FlatList
+      {/* <FlatList
         data={recipeIngredients}
         renderItem={({ item }) => (
           <TouchableOpacity
@@ -102,7 +128,17 @@ function AddMealScreen({ currentDay, adder, navigation }) {
             <Text style={styles.details}>{item.decription}</Text>
           </TouchableOpacity>
         )}
+      /> */}
+      <SectionList
+        sections={mealCategories}
+        keyExtractor={(item, index) => item + index}
+        renderItem={({ item }) => <Item title={item} />}
+        renderSectionHeader={({ section: { title } }) => (
+          <Text style={styles.sectionHeading}>{title}</Text>
+        )}
+        style={styles.list}
       />
+
       <Button
         title="Back"
         onPress={() => {

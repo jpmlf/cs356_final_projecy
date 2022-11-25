@@ -32,15 +32,24 @@ const styles = StyleSheet.create({
   item: {
     padding: 8,
     fontSize: 18,
-    height: 38,
   },
   heading: {
     padding: 10,
     fontSize: 24,
-    height: 50,
   },
   details: {
-    fontSize: 12,
+    fontSize: 14,
+  },
+  listButton: {
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    flexDirection: "row",
+    flex: 1,
+    padding: 9,
+  },
+  list: {
+    width: "100%",
+    height: "100%",
   },
 });
 
@@ -54,20 +63,32 @@ function PlanScreen({ navigation, plannedMeals }) {
             onPress={() => {
               navigation(item.name);
             }}
+            style={styles.listButton}
           >
-            <Text style={styles.item}>
-              {item.name}
-              {item.planned_meals < 3 ? (
-                <Ionicons name="add-circle-outline" />
-              ) : (
-                <Ionicons name="repeat" />
-              )}
+            {item.planned_meals < 3 ? (
+              <Ionicons name="add" style={styles.item} />
+            ) : (
+              <Ionicons name="repeat" style={styles.item} />
+            )}
+            <Text style={styles.item}>{item.name}</Text>
+            <Text style={{ maxWidth: 200 }}>
+              <Text style={styles.details}>
+                Breakfast: {item.b}
+                {"\n"}
+              </Text>
+
+              <Text style={styles.details}>
+                Lunch: {item.l}
+                {"\n"}
+              </Text>
+              <Text style={styles.details}>
+                Dinner: {item.d}
+                {"\n"}
+              </Text>
             </Text>
-            <Text style={styles.details}>Breakfast: {item.b}</Text>
-            <Text style={styles.details}>Lunch: {item.l}</Text>
-            <Text style={styles.details}>Dinner: {item.d}</Text>
           </TouchableOpacity>
         )}
+        style={styles.list}
       />
     </View>
   );
