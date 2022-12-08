@@ -55,6 +55,9 @@ const styles = StyleSheet.create({
   details: {
     fontSize: 12,
   },
+  list:{
+    width: "100%",
+  }
 });
 
 function RecipeScreen({ state, setter, plannedRecipes }) {
@@ -159,6 +162,8 @@ function RecipeScreen({ state, setter, plannedRecipes }) {
         <Text style={styles.heading}>Ingredients</Text>
         <FlatList
           data={currentIngredients}
+          style={styles.list}
+          persistentScrollbar={true}
           renderItem={({ item }) => (
             <TouchableOpacity
               onPress={() => {
@@ -179,6 +184,7 @@ function RecipeScreen({ state, setter, plannedRecipes }) {
         />
         <Text style={styles.instruction_heading}>How to make {currentRecipe.name}:</Text>
         <FlatList
+          persistentScrollbar={true}
           data={currentRecipe.instructions}
           renderItem={({ item }) => <Text style={styles.item}>{item}</Text>}
         />

@@ -31,9 +31,11 @@ const styles = StyleSheet.create({
   },
   item: {
     padding: 10,
-    fontSize: 18,
-    height: 44,
+    fontSize: 23,
   },
+  list:{
+    width: "100%",
+  }
 });
 
 function ShoppingListScreen({ state, setter }) {
@@ -41,6 +43,7 @@ function ShoppingListScreen({ state, setter }) {
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <FlatList
         data={state}
+        style={styles.list}
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => {

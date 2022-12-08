@@ -14,7 +14,7 @@ export const plannedMeals = [
 //meal type data
 export const mealCategories = [
   {
-    title: "Main dishes",
+    title: "Easy Essentials",
     data: [
       { name: "Grilled Cheese", decription: "A tasty simple sandwich", calories: "700", price: "$3"},
       {
@@ -23,9 +23,25 @@ export const mealCategories = [
         calories:"300",
         price: "$4"
       },
-      { name: "Chunky Harms", decription: "MEATY Breakfast cereal", calories: "9000", price: "$9 grand" },
     ],
   },
+  {
+    title: "Simple Breakfasts",
+    data: [
+      { name: "Ham and Swiss Omelet", decription: "easy omelet will be a snap", calories: "530", price: "$12"},
+      { name: "Rise and Shine Parfait", decription: "Start your day with a smile", calories: "259", price: "$7"},
+      { name: "Stuffed Ham & Egg Bread", decription: "Stuffed Ham & Egg Bread", calories: "321", price: "$45"},
+      { name: "Italian Cloud Eggs", decription: "egg yolks on nests of whipped Italian-seasoned egg whites", calories: "96", price: "$22"},
+    ]
+  },
+  {
+    title:"Joke Meals",
+    data: [
+      { name: "Chunky Harms", decription: "MEATY Breakfast cereal", calories: "9000", price: "$9 grand" },
+      { name: "The Sad European", decription: "Zero Calories!", calories: "800", price: "$45" },
+      { name: "Grilled Cheese 2", decription: "This time it's personal", calories: "1400", price: "$6"},
+    ],
+  }
 ];
 
 //recipe data
@@ -87,7 +103,7 @@ export const recipeIngredients = [
     ingredientNames: ["Wheat"],
     ingredientQuantites: [{ name: "Wheat", quant: 1 }],
     instructions: ["Step 1: cry", "..."],
-    decription: "Zero Calories!",
+    
   },
   {
     index: 5,
@@ -106,6 +122,74 @@ export const recipeIngredients = [
       "Step 5: flip until both sides are browned",
       "Step 2: stay unpredictable",
     ],
-    decription: "This time it's personal",
+  },
+  {
+    index: 6,
+    name: "Ham and Swiss Omelet",
+    ingredientNames: ["Eggs", "Cheese", "Butter"],
+    ingredientQuantites: [
+      { name: "Eggs", quant: 3 },
+      { name: "Cheese", quant: 1 },
+      { name: "Butter", quant: 1 },
+    ],
+    instructions: [
+      "Step 1: melt butter over medium-high heat",
+      "Step 2: Whisk the eggs",
+      "Step 3: As eggs set, push cooked edges toward the center",
+      "Step 4: finish the omlete",
+      "Step 5: etc. etc."
+    ],
+  },
+  {
+    index: 7,
+    name: "Rise and Shine Parfait",
+    ingredientNames: ["vanilla yogurt", "Peaches", "Granola"],
+    ingredientQuantites: [
+      { name: "vanilla yogurt", quant: 4 },
+      { name: "Peaches", quant: 2 },
+      { name: "Granola", quant: 1 },
+    ],
+    instructions: [
+      "Step 1: Layer half the yogurt, peaches, blackberries and granola into 4 parfait glasses",
+      "Step 2: Repeat"
+    ],
+  },
+  {
+    index: 8,
+    name: "Stuffed Ham & Egg Bread",
+    ingredientNames: ["teaspoons canola oil", "Tomato", "Eggs"],
+    ingredientQuantites: [
+      { name: "teaspoons canola oil", quant: 2 },
+      { name: "Tomato", quant: 1 },
+      { name: "Eggs", quant: 6 },
+    ],
+    instructions: [
+      "Step 1: Add tomatoes ",
+      "Step 2: cook and stir until juices are evaporated",
+      "Step 3: Add eggs",
+      "Step 4: cook and stir until thickened",
+      "Step 5: Unroll dough onto a greased baking sheet",
+      "Step 2: Sprinkle cheese lengthwise",
+    ],
+  },
+  {
+    index: 9,
+    name: "Italian Cloud Eggs",
+    ingredientNames: ["Eggs", "Italian seasoning", "Salt", "Pepper", "Cheese"],
+    ingredientQuantites: [
+      { name: "Eggs", quant: 4 },
+      { name: "Italian seasoning", quant: 1 },
+      { name: "Salt", quant: 1 },
+      { name: "Pepper", quant: 1 },
+      { name: "Cheese", quant: 1 },
+    ],
+    instructions: [
+      "Step 1: Preheat oven to 450° ",
+      "Step 2: Separate eggs",
+      "Step 3: place whites in a large bowl and yolks in 4 separate small bowls",
+      "Step 4: Beat egg whites, Italian seasoning, salt and pepper until stiff peaks form",
+      "Step 5: drop egg white mixture into 4 mounds on skillet",
+      "Step 6: Bake until light brown",
+    ],
   },
 ];

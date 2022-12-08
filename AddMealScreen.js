@@ -80,7 +80,7 @@ function AddMealScreen({ currentDay, adder, navigation }) {
       <Text style={styles.item}>{title.name}</Text>
       <Text style={styles.details}>{title.decription}</Text>
       <Text style={styles.details}>
-        Calories:{title.calories} Cost:{title.price}
+        Calories: {title.calories}  Cost: {title.price}
       </Text>
     </TouchableOpacity>
   );
@@ -115,21 +115,8 @@ function AddMealScreen({ currentDay, adder, navigation }) {
         />
       </Text>
       <Text style={styles.details}>{mealtimesNames[mealIndex]}</Text>
-      {/* <FlatList
-        data={recipeIngredients}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            onPress={() => {
-              adder(item.name, currentDay, mealtimes[mealIndex]);
-              navigation("Base");
-            }}
-          >
-            <Text style={styles.item}>{item.name}</Text>
-            <Text style={styles.details}>{item.decription}</Text>
-          </TouchableOpacity>
-        )}
-      /> */}
       <SectionList
+        persistentScrollbar={true}
         sections={mealCategories}
         keyExtractor={(item, index) => item + index}
         renderItem={({ item }) => <Item title={item} />}
